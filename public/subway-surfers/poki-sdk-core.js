@@ -2985,7 +2985,7 @@
         M = function() {
             ! function() {
                 if (!window.__tcfapi) {
-                    var t = {};
+                    var t = new Map;
                     window.__tcfapi = function(n, e, i, r) {
                         if (!kt.GetIsPokiIFrame() && !_()) return i({
                             msg: "CMP not found"
@@ -2999,14 +2999,14 @@
                                     callId: o
                                 }
                             };
-                        t[o] = i, window.parent.postMessage(a, "*")
+                        t.set(o, i), window.parent.postMessage(a, "*")
                     }, window.addEventListener("message", (function(n) {
                         var e = {};
                         try {
                             e = "string" == typeof n.data ? JSON.parse(n.data) : n.data
                         } catch (t) {}
                         var i = e.__tcfapiReturn;
-                        i && Object.prototype.hasOwnProperty.call(t, i.callId) && "function" == typeof t[i.callId] && (t[i.callId](i.returnValue, i.success), t[i.callId] = null)
+                        i && t.has(i.callId) && "function" == typeof t.get(i.callId) && (t.get(i.callId)(i.returnValue, i.success), t.set(i.callId, null))
                     }), !1)
                 }
             }(), window.pbjs.que.push((function() {
