@@ -3006,7 +3006,7 @@
                             e = "string" == typeof n.data ? JSON.parse(n.data) : n.data
                         } catch (t) {}
                         var i = e.__tcfapiReturn;
-                        i && "function" == typeof t[i.callId] && (t[i.callId](i.returnValue, i.success), t[i.callId] = null)
+                        i && Object.prototype.hasOwnProperty.call(t, i.callId) && "function" == typeof t[i.callId] && (t[i.callId](i.returnValue, i.success), t[i.callId] = null)
                     }), !1)
                 }
             }(), window.pbjs.que.push((function() {
