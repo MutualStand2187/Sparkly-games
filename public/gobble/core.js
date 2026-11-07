@@ -2687,7 +2687,7 @@
 								i = "string" == typeof e.data ? JSON.parse(e.data) : e.data
 							} catch (e) {}
 							var n = i.__tcfapiReturn;
-							n && "function" == typeof t[n.callId] && (t[n.callId](n.returnValue, n.success), t[n.callId] = null)
+							n && Object.prototype.hasOwnProperty.call(t, n.callId) && "function" == typeof t[n.callId] && (t[n.callId](n.returnValue, n.success), t[n.callId] = null)
 						}), !1)
 					}
 				}(), window.pbjs.que.push((function() {
@@ -2719,7 +2719,7 @@
 							t[o] = r, e.postMessage(a, "*")
 						}, window.addEventListener("message", (function(e) {
 							var i = e && e.data && e.data.__uspapiReturn;
-							i && i.callId && "function" == typeof t[i.callId] && (t[i.callId](i.returnValue, i.success), t[i.callId] = null)
+							i && i.callId && Object.prototype.hasOwnProperty.call(t, i.callId) && "function" == typeof t[i.callId] && (t[i.callId](i.returnValue, i.success), t[i.callId] = null)
 						}), !1)
 					}
 				}(), window.pbjs.que.push((function() {
